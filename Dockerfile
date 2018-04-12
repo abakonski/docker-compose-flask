@@ -4,8 +4,7 @@ FROM python:3.6
 ENV NGINX_VERSION '1.10.3-1+deb9u1'
 
 # Install dependencies
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
-    && echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" >> /etc/apt/sources.list \
+RUN echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" >> /etc/apt/sources.list \
     && echo "deb-src http://httpredir.debian.org/debian/ stretch main contrib non-free" >> /etc/apt/sources.list \
     && apt-get update -y \
     && apt-get install -y -t stretch openssl nginx-extras=${NGINX_VERSION} \
